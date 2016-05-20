@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KIBs referensguide för APA och Vancouver</title>
+    <meta name="description" content="Är du redo att ha en konversation om referenser?">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@kibiblioteket">
+    <meta property="og:type" content="article">
+    <meta property="og:title" name="twitter:title" content="KIBs referensguide för APA och Vancouver">
+    <meta property="og:description" name="twitter:description" content="Är du redo att ha en konversation om referenser?">
+    <meta property="og:image" name="twitter:image" content="https://tools.kib.ki.se/referensguide/conversation/screenshot/screenshot.jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="icons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="icons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="icons/manifest.json">
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#870052">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#870052">
+    <meta name="msapplication-TileImage" content="icons/mstile-144x144.png">
+    <meta name="msapplication-config" content="icons/browserconfig.xml">
+    <meta name="theme-color" content="#870052">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <article class="chat">
+      </article>
+      <div class="content">
+      </div>
+    </div>
+    <script>
+      (function() {
+        try {
+          raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+        } catch (e) {
+          raf = false;
+        }
+        function loadFonts() {
+          var h = document.getElementsByTagName('head')[0],
+            mundo = document.createElement('link'),
+            os = document.createElement('link');
+          mundo.rel = 'stylesheet';
+          mundo.href = 'https://tools.kib.ki.se/userfiles/mundo-sans/mundo.css';
+          os.rel = 'stylesheet';
+          os.href = 'https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700';
+          h.appendChild(mundo);
+          h.appendChild(os);
+        }
+        if (raf) {
+          raf(loadFonts);
+        } else {
+          window.addEventListener('load', loadFonts, false);
+        }
+      })();
+    </script>
+    <script src="js/app.min.js"></script>
+  </body>
+</html>
