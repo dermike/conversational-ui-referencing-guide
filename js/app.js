@@ -239,10 +239,12 @@
       article.classList.add('show');
       content.classList.add('show');
       content.setAttribute('aria-hidden', 'false');
+      chat.setAttribute('aria-hidden', 'true');
       closeButton.tabIndex = '0';
     } else {
       content.classList.remove('show');
       content.setAttribute('aria-hidden', 'true');
+      chat.setAttribute('aria-hidden', 'false');
       closeButton.tabIndex = '-1';
       setTimeout(() => {
         let active = document.querySelector('.content article.show');
