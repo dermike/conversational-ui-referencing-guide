@@ -83,6 +83,7 @@ h6 {
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
   margin: 0;
+  outline: 0;
 }
 
 .content article {
