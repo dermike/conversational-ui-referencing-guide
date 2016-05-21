@@ -112,6 +112,9 @@ h6 {
   margin-right: 0.5em;
   cursor: pointer;
   z-index: 101;
+  background-color: transparent;
+  border: none;
+  color: #232323;
 }
 
 .content.show {

@@ -183,7 +183,7 @@
     getJSON('https://tools.kib.ki.se/jsonendpoint/referenceguide/' + style, (data) => {
       if (data) {
         let examples = '';
-        examples += '<span class="close">&times;</span>';
+        examples += '<button class="close" aria-label="Stäng" tabindex="-1">&times;</button>';
         refguide = data;
         refguide.examples.forEach(val => {
           examples += `<article id="${val.id}">
@@ -223,7 +223,8 @@
       ];
     newMessage(randomReply(replies), 'bot');
     menuChoice.submenu.forEach(val => {
-      submenu += `<button class="choice submenu" data-example="${menuChoice.id}-${val.id}">${val.title}</button>`;
+      let id = `${menuChoice.id}-${val.id}`;
+      submenu += `<button class="choice submenu" aria-controls="${id}" data-example="${id}">${val.title}</button>`;
     });
     submenu += `<br /><button class="choice submenu newmenu">${randomReply(userReplies)}</button>`;
     setTimeout(() => {
@@ -231,23 +232,36 @@
     }, 500);
   };
 
+  const toggleContent = article => {
+    let closeButton = content.querySelector('.close'),
+      buttons = chat.querySelectorAll('button');
+    if (article) {
+      article.classList.add('show');
+      content.classList.add('show');
+      content.setAttribute('aria-hidden', 'false');
+      closeButton.tabIndex = '0';
+    } else {
+      content.classList.remove('show');
+      content.setAttribute('aria-hidden', 'true');
+      closeButton.tabIndex = '-1';
+      setTimeout(() => {
+        let active = document.querySelector('.content article.show');
+        if (active) {
+          active.classList.remove('show');
+        }
+      }, 300);
+    }
+    for (let i = 0; i < buttons.length; i += 1) {
+      buttons[i].tabIndex = article ? '-1' : '0';
+    }
+  };
+
   const subMenuClick = clicked => {
     if (clicked.classList.contains('newmenu')) {
       showMenu(true);
     } else {
-      document.getElementById(clicked.getAttribute('data-example')).classList.add('show');
-      content.classList.add('show');
+      toggleContent(document.getElementById(clicked.getAttribute('data-example')));
     }
-  };
-
-  const closeContent = () => {
-    content.classList.remove('show');
-    setTimeout(() => {
-      let active = document.querySelector('.content article.show');
-      if (active) {
-        active.classList.remove('show');
-      }
-    }, 300);
   };
 
   document.addEventListener('click', e => {
@@ -299,13 +313,13 @@
       }
     }
     if (e.target.classList.contains('close')) {
-      closeContent();
+      toggleContent();
     }
   });
 
   document.addEventListener('keydown', e => {
     if (e.keyCode === 27) {
-      closeContent();
+      toggleContent();
     }
   });
 
