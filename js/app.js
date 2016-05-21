@@ -183,7 +183,7 @@
     getJSON('https://tools.kib.ki.se/jsonendpoint/referenceguide/' + style, (data) => {
       if (data) {
         let examples = '';
-        examples += '<button class="close" aria-label="Stäng" tabindex="-1">&times;</button>';
+        examples += '<button class="close" aria-label="Stäng">&times;</button>';
         refguide = data;
         refguide.examples.forEach(val => {
           examples += `<article id="${val.id}">
@@ -233,23 +233,24 @@
   };
 
   const toggleContent = article => {
-    let closeButton = content.querySelector('.close'),
-      buttons = chat.querySelectorAll('button');
+    let buttons = chat.querySelectorAll('button');
     if (article) {
       article.classList.add('show');
+      chat.setAttribute('aria-hidden', 'true');
       content.classList.add('show');
       content.setAttribute('aria-hidden', 'false');
-      chat.setAttribute('aria-hidden', 'true');
-      closeButton.tabIndex = '0';
+      content.tabIndex = '0';
+      content.focus();
     } else {
       content.classList.remove('show');
       content.setAttribute('aria-hidden', 'true');
+      content.tabIndex = '-1';
       chat.setAttribute('aria-hidden', 'false');
-      closeButton.tabIndex = '-1';
       setTimeout(() => {
         let active = document.querySelector('.content article.show');
         if (active) {
           active.classList.remove('show');
+          chat.querySelector(`button[data-example="${active.id}"]`).focus();
         }
       }, 300);
     }
