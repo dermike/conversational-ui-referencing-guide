@@ -123,7 +123,7 @@ h6 {
   display: none;
 }
 
-.content.show {
+.content[aria-hidden="false"] {
   -webkit-transform: translateX(0%);
   transform: translateX(0%);
 }
