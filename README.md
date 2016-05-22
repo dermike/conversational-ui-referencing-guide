@@ -6,4 +6,4 @@ Inspired from Griffith University's [Referencing Tool](https://app.secure.griffi
 
 See [this repo](https://github.com/dermike/conversational-ui) for implementation details. The only difference is this version reads all menu structure and content data from an external json file and therefore has an extra loading dialog.
 
-Since this repo hosts my own live implementation, it will fail in most browsers because of CORS restrictions.
+Since this repo hosts my own [live implementation](https://tools.kib.ki.se/referensguide/conversation), it will fail in most browsers because of CORS restrictions.
