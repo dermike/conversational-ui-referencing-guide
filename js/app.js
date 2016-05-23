@@ -245,6 +245,9 @@
       content.setAttribute('aria-hidden', 'true');
       content.tabIndex = '-1';
       chat.setAttribute('aria-hidden', 'false');
+      if (history.state && history.state.id === 'content') {
+        history.back();
+      }
       setTimeout(() => {
         let active = document.querySelector('.content article.show');
         if (active) {
@@ -263,6 +266,7 @@
       showMenu(true);
     } else {
       toggleContent(document.getElementById(clicked.getAttribute('data-content')));
+      history.pushState({'id': 'content'}, '', `#${clicked.getAttribute('data-content')}`);
     }
   };
 
@@ -323,6 +327,10 @@
     if (e.keyCode === 27) {
       toggleContent();
     }
+  });
+
+  window.addEventListener('popstate', () => {
+    toggleContent();
   });
 
   setTimeout(() => {
