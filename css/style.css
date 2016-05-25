@@ -84,8 +84,8 @@ h6 {
   background-color: #b0ca3b;
   -webkit-transition: transform 0.35s ease;
   transition: transform 0.35s ease;
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
+  -webkit-transform: translateX(-102%);
+  transform: translateX(-102%);
   will-change: transform;
   margin: 0;
   outline: 0;
