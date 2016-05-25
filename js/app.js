@@ -134,9 +134,7 @@
       checkUp();
     }, sleeptime);
     again ? newMessage(randomReply(againReplies), 'bot') : newMessage(randomReply(welcomeReplies), 'bot');
-    setTimeout(() => {
-      startAlternatives();
-    }, 300);
+    startAlternatives();
   };
 
   const makeUserBubble = el => {
