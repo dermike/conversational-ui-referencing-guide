@@ -70,7 +70,9 @@
   };
 
   const startAlternatives = () => {
-    newMessage('<button class="choice style apa">APA</button><button class="choice style vancouver">Vancouver</button>');
+    setTimeout(() => {
+      newMessage('<button class="choice style apa">APA</button><button class="choice style vancouver">Vancouver</button>');
+    }, 300);
   };
 
   const checkUp = () => {
@@ -222,14 +224,16 @@
         `Visa de andra källorna igen &#x1F633;`,
         `${menuChoice.title} i all ära, men kollar gärna något annat nu... &#x1F612;`
       ];
-    newMessage(randomReply(replies), 'bot');
     menuChoice.submenu.forEach(val => {
       let id = `${menuChoice.id}-${val.id}`;
       submenu += `<button class="choice submenu" aria-controls="${id}" data-content="${id}">${val.title}</button>`;
     });
     submenu += `<br /><button class="choice submenu newmenu">${randomReply(userReplies)}</button>`;
     setTimeout(() => {
-      newMessage(submenu);
+      newMessage(randomReply(replies), 'bot');
+      setTimeout(() => {
+        newMessage(submenu);
+      }, 300);
     }, 500);
   };
 
@@ -299,23 +303,25 @@
 
       if (e.target.classList.contains('showinfo')) {
         let infoReplies = [
-          'Här kan du läsa mer om hur du refererar',
-          'På vår webbplats kan du läsa mer om referenser',
-          'Ok, kolla den här länken:'
-        ];
-        newMessage(`${randomReply(infoReplies)} <a target="_new" href="https://kib.ki.se/skriva-referera/skriva-referenser">https://kib.ki.se/skriva-referera/skriva-referenser</a>`, 'bot');
-        setTimeout(() => {
-          let okReplies = [
+            'Här kan du läsa mer om hur du refererar',
+            'På vår webbplats kan du läsa mer om referenser',
+            'Ok, kolla den här länken:'
+          ],
+          okReplies = [
             'OK &#x1F60E;',
             'Hur kommer jag tillbaka? &#x1F312;',
             'Ok, jag är redo! &#x1F44C;'
           ];
-          if (refguide) {
-            newMessage(`<button class="choice newmenu showmenu">${randomReply(okReplies)}</button>`);
-          } else {
-            newMessage(`<button class="choice newmenu showstart">${randomReply(okReplies)}</button>`);
-          }
-        }, 300);
+        setTimeout(() => {
+          newMessage(`${randomReply(infoReplies)} <a target="_new" href="https://kib.ki.se/skriva-referera/skriva-referenser">https://kib.ki.se/skriva-referera/skriva-referenser</a>`, 'bot');
+          setTimeout(() => {
+            if (refguide) {
+              newMessage(`<button class="choice newmenu showmenu">${randomReply(okReplies)}</button>`);
+            } else {
+              newMessage(`<button class="choice newmenu showstart">${randomReply(okReplies)}</button>`);
+            }
+          }, 300);
+        }, 500);
       }
     }
     if (e.target.classList.contains('close')) {
