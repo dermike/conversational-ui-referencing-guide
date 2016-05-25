@@ -70,9 +70,7 @@
   };
 
   const startAlternatives = () => {
-    setTimeout(() => {
-      newMessage('<button class="choice style apa">APA</button><button class="choice style vancouver">Vancouver</button>');
-    }, 300);
+    newMessage('<button class="choice style apa">APA</button><button class="choice style vancouver">Vancouver</button>');
   };
 
   const checkUp = () => {
@@ -134,7 +132,9 @@
       checkUp();
     }, sleeptime);
     again ? newMessage(randomReply(againReplies), 'bot') : newMessage(randomReply(welcomeReplies), 'bot');
-    startAlternatives();
+    setTimeout(() => {
+      startAlternatives();
+    }, 300);
   };
 
   const makeUserBubble = el => {
@@ -280,7 +280,9 @@
       }
 
       if (e.target.classList.contains('style')) {
-        loadStyle(e.target.textContent.toLowerCase());
+        setTimeout(() => {
+          loadStyle(e.target.textContent.toLowerCase());
+        }, 500);
       }
 
       if (e.target.classList.contains('menu')) {
@@ -292,7 +294,9 @@
       }
 
       if (e.target.classList.contains('showstart')) {
-        startAlternatives();
+        setTimeout(() => {
+          startAlternatives();
+        }, 300);
       }
 
       if (e.target.classList.contains('showmenu')) {
