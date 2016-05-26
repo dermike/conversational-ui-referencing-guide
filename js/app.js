@@ -65,9 +65,7 @@
     }
   };
 
-  const randomReply = replies => {
-    return replies[Math.floor(Math.random() * replies.length)];
-  };
+  const randomReply = replies => replies[Math.floor(Math.random() * replies.length)];
 
   const startAlternatives = () => {
     newMessage('<button class="choice style apa">APA</button><button class="choice style vancouver">Vancouver</button>');
