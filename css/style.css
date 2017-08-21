@@ -78,6 +78,8 @@ h6 {
 .chat {
   height: 100%;
   padding: 1em;
+  margin: 0;
+  text-indent: initial;
 }
 
 .content {
@@ -174,7 +176,7 @@ h6 {
   color: #fff;
 }
 
-.message.user p {
+.message.user p, .message.user nav {
   margin: 0.25em 0 0 0;
   text-align: center;
 }
