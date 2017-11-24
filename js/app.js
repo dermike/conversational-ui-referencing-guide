@@ -117,7 +117,7 @@
 
   const init = again => {
     let welcomeReplies = [
-        'Hej, välkommen till KIBs referensguide! &#x1F603; I vilket format ska din referens vara? &#x1F64B;',
+        'Hej, välkommen till KIB:s referensguide! &#x1F603; I vilket format ska din referens vara? &#x1F64B;',
         'Hej! &#x1F44B; Välkommen till vår referensguide! Vilken referensstil använder du?'
       ],
       againReplies = [
